@@ -11,7 +11,6 @@ class Recipe extends Component {
     render() {
 
         let recipeDetailContainer = 'recipe-detail-'+this.props.recipe.uuid
-        let id = this.props.recipe.uuid
 
         return(
             <div className='recipe'>
@@ -27,7 +26,7 @@ class Recipe extends Component {
                             className='view-recipe'
                             onClick={() => this.displayRecipe()}>TRY IT</button>
                     </div>
-                    <div className='recipe-image'><img src={this.props.recipe.images.small} /></div>
+                    <div className='recipe-image'><img src={this.props.recipe.images.small} alt="recipe-preview" /></div>
                 </div>
                 <div className='recipe-details-prev'>
                     <div className='servings'>{this.props.recipe.servings} servings /</div>

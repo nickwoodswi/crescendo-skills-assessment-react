@@ -22,16 +22,21 @@
     .build-recipe{
         background-color: purple;
         display: flex;
+        align-items: flex-start;
         width: 100%;
         justify-content: space-evenly;
     }
         .add-ingredients{
             display: flex;
+            width: 100%;
             flex-direction: column;
             justify-content: center;
+            padding: 5px;
         }
         .add-directions{
             display: flex;
+            width: 100%;
             flex-direction: column;
             justify-content: center;
+            padding: 5px;
         }

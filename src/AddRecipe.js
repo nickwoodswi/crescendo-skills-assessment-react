@@ -1,27 +1,32 @@
 import React, { Component } from 'react'
 import './AddRecipe.css'
 import AddIngredient from './AddIngredient'
+import AddDirection from './AddDirection'
 
 class AddRecipe extends Component {
     render() {
         return(
             <div className="add-recipe-form">
-                <input type="text" onChange={this.props.addRecipe} placeholder="Recipe Name" />
+                <input type="text" placeholder="Recipe Name" onChange={e => this.props.handleNewRecipeState('title', e.target.value)} />
                 <div className="proc-preview">
-                    <input className="proc-preview-input" type="number" onChange={this.props.addRecipe} placeholder="Prep Time" />
-                    <input className="proc-preview-input" type="number" onChange={this.props.addRecipe} placeholder="Cook Time" />
-                    <input className="proc-preview-input" type="number" onChange={this.props.addRecipe} placeholder="# of Servings" />
+                    <input className="proc-preview-input" type="number" onChange={e => this.props.handleNewRecipeState('prepTime', e.target.value)} placeholder="Prep Time (Minutes)" />
+                    <input className="proc-preview-input" type="number" onChange={e => this.props.handleNewRecipeState('cookTime', e.target.value)} placeholder="Cook Time (Minutes)" />
+                    <input className="proc-preview-input" type="number" onChange={e => this.props.handleNewRecipeState('servings', e.target.value)} placeholder="# of Servings" />
                 </div>
-                <input type="text" onChange={this.props.addRecipe} placeholder="Short Description" />
+                <input type="text" onChange={e => this.props.handleNewRecipeState('description', e.target.value)} placeholder="Short Description" />
                 <div className="build-recipe">
                     <div className="add-ingredients">
                         Ingredients:<br/>
-                        <AddIngredient />
+                        <AddIngredient 
+                            addIngredient={this.props.addIngredient} 
+                            editIngredient={this.props.editIngredient}
+                            newRecipeIngredients={this.props.appState.ingredients} />
                     </div>
                     <div className="add-directions">
                         Directions:<br/>
-                        <input type="text" onChange={this.props.addRecipe} placeholder="Instructions - Step 1:" />
-                        <button>+Add Direction</button>
+                        <AddDirection 
+                            addDirection={this.props.addDirection} 
+                            newRecipeDirections={this.props.appState.directions} />
                     </div>
                 </div>
 
