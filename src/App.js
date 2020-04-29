@@ -79,7 +79,7 @@ class App extends Component {
   }
 
   editIngredient(ingredientId, propName, value) {
-    let updatingIngredientProp = this.state.ingredients[ingredientId].
+    let updatingIngredientProp = this.state.ingredients[ingredientId]
     console.log(propName, value)
     //console.log(updatingIngredientProp.propName)
     // this.setState({
